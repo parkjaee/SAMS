@@ -1,0 +1,32 @@
+.submenu-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.submenu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 300ms ease-in-out;
+}
+.submenu-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+.submenu-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 300ms ease-in-out;
+}
+.custom-menu-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-menu-btn:hover {
+    background-color: #333;
+    color: white;
+}
