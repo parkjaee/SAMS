@@ -1,0 +1,237 @@
+/* 전체 컨테이너 */
+.tip-board.container {
+    max-width: 1200px;
+    margin: 100px auto 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 영역 */
+.tip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tip-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.write-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.write-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 게시판 리스트 */
+.tip-list {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* 헤더 행 */
+.tip-list.header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+    color: #555;
+}
+
+/* 공통 행 스타일 */
+.tip-list.header,
+.tip-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px 120px 80px;
+    gap: 15px;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tip-item:last-child {
+    border-bottom: none;
+}
+
+.tip-item:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* 제목 스타일 */
+.tip-title {
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tip-title:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* 각 열의 텍스트 정렬 */
+.tip-list.header span:first-child,
+.tip-item span:first-child {
+    text-align: center;
+    font-weight: 500;
+}
+
+.tip-list.header span:nth-child(3),
+.tip-item span:nth-child(3) {
+    text-align: center;
+}
+
+.tip-list.header span:nth-child(4),
+.tip-item span:nth-child(4) {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.tip-list.header span:last-child,
+.tip-item span:last-child {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 반응형 디자인 - 태블릿 */
+@media (max-width: 768px) {
+    .tip-board.container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .tip-header h2 {
+        font-size: 20px;
+    }
+
+    .write-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .tip-list.header,
+    .tip-item {
+        grid-template-columns: 60px 1fr 100px 100px 60px;
+        gap: 10px;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+/* 반응형 디자인 - 모바일 */
+@media (max-width: 480px) {
+    .tip-board.container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .tip-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .write-btn {
+        align-self: flex-end;
+        width: fit-content;
+    }
+
+    /* 모바일에서는 번호와 조회수 숨김 */
+    .tip-list.header,
+    .tip-item {
+        grid-template-columns: 1fr 80px 90px;
+        gap: 8px;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .tip-list.header span:first-child,
+    .tip-item span:first-child,
+    .tip-list.header span:last-child,
+    .tip-item span:last-child {
+        display: none;
+    }
+
+    .tip-title {
+        font-size: 14px;
+    }
+}
+
+/* 추가적인 스타일링 */
+.tip-item span {
+    transition: all 0.2s ease;
+}
+
+/* 빈 상태 메시지 (필요시 사용) */
+.empty-tip {
+    text-align: center;
+    padding: 50px 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.empty-tip::before {
+    content: "💡";
+    display: block;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* 로딩 상태 (필요시 사용) */
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+}
+
+/* 페이지네이션을 위한 스타일 (미래 확장용) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button:hover {
+    background-color: #f5f5f5;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
